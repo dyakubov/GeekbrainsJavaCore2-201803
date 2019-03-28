@@ -11,10 +11,16 @@ public class Course {
     private Obstacle[] obstacles;
 
     public Course(Obstacle... obstacles) {
+
         this.obstacles = obstacles;
     }
 
     public void doIt(Team team) {
+        System.out.println("Выступает команда: " + team.getTeamName() + "\nСостав команды:");
+        team.printParticipants(team);
+        System.out.println("На старт!\nВнимание!\n---Марш!---");
+
+
         for (Participant participant : team.getParticipants()) {
             for (Obstacle obstacle : obstacles) {
                 obstacle.doIt(participant);
@@ -25,5 +31,7 @@ public class Course {
                 }
             }
         }
+        team.printFinishedParticipants(team);
     }
+
 }
