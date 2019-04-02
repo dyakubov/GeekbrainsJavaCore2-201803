@@ -1,10 +1,10 @@
 package ru.geekbrains.lesson1;
 
 import ru.geekbrains.lesson1.animal.Cat;
-import ru.geekbrains.lesson1.course.Course;
-import ru.geekbrains.lesson1.course.Cross;
-import ru.geekbrains.lesson1.course.Wall;
-import ru.geekbrains.lesson1.course.Water;
+import ru.geekbrains.lesson1.animal.Dog;
+import ru.geekbrains.lesson1.animal.Human;
+import ru.geekbrains.lesson1.animal.Robot;
+import ru.geekbrains.lesson1.course.*;
 import ru.geekbrains.lesson1.enums.Color;
 
 /**
@@ -13,19 +13,22 @@ import ru.geekbrains.lesson1.enums.Color;
 public class Application {
 
     public static void main(String[] args) {
-        Team team = new Team(
-                new Cat("Барсик", Color.BLACK, 1, 100, 5),
-                new Cat("Барсик", Color.BLACK, 1, 80, 7)
-                // TODO здесь должны быть участники всех видов (Cat, Dog, Human, Robot)
+        Team team = new Team("<<Хвостики>>",
+                new Cat("Барсик", Color.BLACK, 3, 80, 15, 0),
+                new Dog("Палкан", Color.WHITE, 5, 150, 15, 15),
+                new Human("Сережа", Color.WHITE, 22, 100, 15, 100),
+                new Robot("T1000", Color.RED, 999, 1000, 1000, 0)
         );
 
         Course course = new Course(
-                new Cross(50),
+                new Cross(100),
                 new Wall(10),
-                new Cross(90),
                 new Water(5)
         );
 
+
         course.doIt(team);
+
+
     }
 }
